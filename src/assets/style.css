@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Base & Reset Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+:root {
+  --background-height: 100vh;
+  --site-language-alignment: left;
+  --site-language-direction: ltr;
+  --viewport-height: 100vh;
+}
+
+html {
+  font-size: 13pt;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #ffffff;
+}
+
+@media (max-width: 1680px) {
+  html {
+    font-size: 9pt;
+  }
+}
+
+@media (max-width: 1280px) {
+  html {
+    font-size: 9pt;
+  }
+}
+
+@media (max-width: 980px) {
+  html {
+    font-size: 8pt;
+  }
+}
+
+@media (max-width: 736px) {
+  html {
+    font-size: 10pt;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 9pt;
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 8.5pt;
+  }
+}
+
+body {
+  line-height: 1;
+  min-height: var(--viewport-height);
+  min-width: 320px;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  background-color: #0b1114;
+  -webkit-text-size-adjust: none;
+}
+
+/* ==========================================================================
+   Multi-layered Background (Dot Pattern, Radial Gradient, Background Image)
+   ========================================================================== */
+body::before {
+  content: "";
+  display: block;
+  height: var(--background-height);
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 0;
+  background-image:
+    url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20preserveAspectRatio%3D%22none%22%3E%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%224.01%25%22%20fill%3D%22rgba(255,255,255,0.102)%22%20%2F%3E%3C%2Fsvg%3E"),
+    radial-gradient(100% 150% at 0% 50%, transparent 49%, rgba(0, 0, 0, 0.949) 96%),
+    url("/assets/images/bg.jpg");
+  background-size: 26px, cover, cover;
+  background-position:
+    center,
+    0% 0%,
+    center;
+  background-repeat: repeat, repeat, no-repeat;
+}
+
+/* ==========================================================================
+   Page Loading Overlay
+   ========================================================================== */
+body::after {
+  background-color: #7e9ca6;
+  content: "";
+  display: block;
+  pointer-events: none;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.8s ease-in-out,
+    visibility 0.8s;
+  z-index: 999;
+}
+
+body.is-loading::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================================================
+   Layout Containers
+   ========================================================================== */
+.site-wrapper {
+  -webkit-overflow-scrolling: touch;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: var(--viewport-height);
+  position: relative;
+  z-index: 1;
+}
+
+.site-main {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: center;
+  max-width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.site-main > .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 70rem;
+  max-width: 100%;
+  padding: 4rem 4rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 980px) {
+  .site-wrapper {
+    align-items: center;
+  }
+
+  .site-main > .inner {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 736px) {
+  .site-main {
+    width: 100%;
+  }
+
+  .site-main > .inner {
+    padding: 2.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-main > .inner {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-main > .inner {
+    padding: 1.5rem 0.75rem;
+  }
+}

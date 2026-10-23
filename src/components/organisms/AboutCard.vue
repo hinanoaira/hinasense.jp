@@ -268,9 +268,12 @@ const emit = defineEmits<(e: 'navigate', action: string) => void>()
         <li><p>イオン千歳店</p></li>
         <li><p>千歳総合メンテサービス有限会社</p></li>
         <li><p>セブンイレブン千歳白樺店</p></li>
-        <li><p>[禁則事項]</p></li>
+        <li><p>[禁則事項](禁則事項)</p></li>
         <li><p>株式会社HIKKY</p></li>
-        <li><p>[禁則事項]</p></li>
+        <li><p>[禁則事項](禁則事項)</p></li>
+        <li><p>株式会社HorizonXX(2026年2月～)</p></li>
+        <li><p>株式会社PLETECH(2026年6月～)</p></li>
+        <li><p>オーナンバ株式会社(2026年6月～)</p></li>
       </ContentList>
 
       <!-- Bottom Back Link -->
